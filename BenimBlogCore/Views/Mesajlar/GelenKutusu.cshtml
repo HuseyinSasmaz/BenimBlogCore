@@ -1,0 +1,35 @@
+﻿@model IEnumerable<BenimBlogCore.Models.Entity.Mesajlar2>
+
+@{
+    ViewData["Title"] = "GelenKutusu";
+    Layout = "~/Views/Shared/Yazar_Layout.cshtml";
+}
+
+<h1>Mesajlar Listesi</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            
+            <th scope="col">Konu</th>
+            <th scope="col">Gönderen</th>
+            <th scope="col">Tarih</th>
+            <th scope="col">Mesaj Aç</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                
+                <td>@item.MesajBaslık</td>
+                <td>@item.GönderKullanıcı.YazarAdı</td>
+                <td>@item.MesajTarihi.ToShortDateString()</td>
+                <td><a href="/Mesajlar/MesajAç/@item.Mesaj2ID" class="btn btn-warning">Mesajı Aç</a></td>
+            </tr>
+        }
+
+    </tbody>
+</table>
+<a href="/Mesajlar/MesajGönder/" class="btn btn-primary">Yeni Mesaj Oluştur</a>
+<a href="/Mesajlar/GidenKutusu/" class="btn btn-success">Giden Kutusu</a>

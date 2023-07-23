@@ -1,0 +1,29 @@
+﻿@model BenimBlogCore.Models.Entity.Mesajlar2
+@{
+    ViewData["Title"] = "MesajAç";
+    Layout = "~/Views/Shared/Yazar_Layout.cshtml";
+}
+
+<h1>Mesaj Detay</h1>
+
+
+<form  asp-action="MesajAç" method="get">
+   @* <div class="mb-3 mt-3">
+        <label class="form-label">Mesaj ID</label>
+        <input type="text" class="form-control" readonly="" asp-for="@Model.Mesaj2ID">
+    </div>*@
+<div class="mb-3">
+    <label class="form-label">Mesaj Gönderen</label>
+    <input type="text" class="form-control" id="pwd" readonly="" asp-for="@Model.GönderKullanıcı">
+</div>
+    <div class="mb-3">
+        <label class="form-label">Mesaj Başlık</label>
+    <input type="text" class="form-control" id="pwd" readonly="" asp-for="@Model.MesajBaslık">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Mesaj Detay</label>
+    <textarea rows="5" cols="15" type="text" class="form-control" id="pwd" readonly="" asp-for="@Model.MesajDetay"></textarea>
+    </div>
+
+<a href="/Mesajlar/GelenKutusu/" class="btn btn-primary">Geri Dön</a>
+</form>

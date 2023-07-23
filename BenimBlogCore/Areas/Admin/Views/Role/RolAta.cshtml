@@ -1,0 +1,34 @@
+﻿@using BenimBlogCore.Models.Entity
+@model List<RolAtaViewModel>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "RolAta";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<form asp-controller="Role" asp-action="RolAta" method="post">
+    @for(int i=0; i<Model.Count; i++)
+    {
+        <div class="form-check">
+            <input type="hidden" asp-for="@Model[i].RolId"  />
+            <input type="hidden" asp-for="@Model[i].Rolü" />
+            <input type="checkbox" class="form-check-input" asp-for="@Model[i].Rolüvarmi" />
+            <label class="form-check-label" asp-for="@Model[i].Rolüvarmi">@Model[i].Rolü</label>
+        </div>
+        
+    }
+    @foreach(var item in Model)
+    {
+        <div class="form-check">
+            <input type="hidden" asp-for="@item.RolId" />
+            <input type="hidden" asp-for="@item.Rolü" />
+            <input type="checkbox" class="form-check-input" asp-for="@item.Rolüvarmi" />
+            <label class="form-check-label" asp-for="@item.Rolüvarmi">@item.Rolü</label>
+        </div>
+    }      
+    <br />
+    <button class="btn btn-primary">Kaydet</button>
+    <a href="/Admin/Role/Index/" class="btn btn-success">Rol Listesine Dön</a>
+</form>
+

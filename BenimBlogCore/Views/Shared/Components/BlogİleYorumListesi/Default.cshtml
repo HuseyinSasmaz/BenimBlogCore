@@ -1,0 +1,18 @@
+﻿@model IEnumerable<BenimBlogCore.Models.Entity.Yorum>
+<div class="comment-top">
+	<h4>Yorumlar</h4>
+	@foreach (var item in Model)
+	{
+		<div class="media">
+			<img src="/BlogDemo/images/t1.jpg" alt="" class="img-fluid" />
+			<div class="media-body">
+				<h5 class="mt-0">@item.YorumKullanıcıAdı</h5>
+				<p>
+					@item.Yorumİcerik
+					
+				</p>
+			</div>
+		</div>
+	}
+
+</div>

@@ -1,0 +1,106 @@
+﻿
+@{
+    ViewData["Title"] = "BlogDetay";
+    Layout = "~/Views/Shared/Blog_Layout.cshtml";
+}
+@model IEnumerable<BenimBlogCore.Models.Entity.Blog>
+@*@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/Blog_Layout.cshtml";
+}
+*@
+
+
+
+
+	<section class="banner-bottom">
+		<!--/blog-->
+		<div class="container">
+			<div class="row">
+				<!--left-->
+				<div class="col-lg-8 left-blog-info-w3layouts-agileits text-left">
+					@foreach (var item in Model)
+				{
+					<div class="blog-grid-top">
+						<div class="b-grid-top">
+							<div class="blog_info_left_grid">
+								<a href="single.html">
+									<img src="@item.BlogResim" class="img-fluid" alt="">
+								</a>
+							</div>
+							<div class="blog-info-middle">
+								<ul>
+									<li>
+										<a href="#">
+											<i class="far fa-calendar-alt"></i> @(((DateTime)item.BlogTarih).ToString("dd-MMM-yyyy"))
+										</a>
+									</li>
+									<li class="mx-2">
+										<a href="#">
+											<i class="far fa-thumbs-up"></i> 0 Beğeni
+										</a>
+									</li>
+									<li>
+										<a href="#">
+											<i class="far fa-comment"></i> 0 Yorumlar
+										</a>
+									</li>
+
+								</ul>
+							</div>
+						</div>
+
+						<h3>
+							<a href="single.html">@item.BlogBaslık </a>
+						</h3>
+						<p>
+							@item.Blogİcerik
+						</p>
+						
+					</div>
+				}
+					
+				  @await Component.InvokeAsync("BlogİleYorumListesi",new{id=ViewBag.dgr})
+
+				 @* @await Html.PartialAsync("~/Views/Yorum/PartialYorumListesi.cshtml")*@
+
+				@await Html.PartialAsync("~/Views/Yorum/PartialYorumEkle.cshtml",new{id=ViewBag.dgr})
+					
+				</div>
+
+				<!--//left-->
+				<!--right-->
+				<aside class="col-lg-4 agileits-w3ls-right-blog-con text-right">
+					<div class="right-blog-info text-left">
+						<div class="tech-btm">
+							<img src="~/BlogDemo/images/banner1.jpg" class="img-fluid" alt="">
+						</div>
+						
+                          @await Html.PartialAsync("~/Views/HaberBulteni/AboneOl.cshtml")
+					
+						
+						@await Component.InvokeAsync("KategoriListesi")
+
+
+
+
+					@await Component.InvokeAsync("Son3Post")
+
+
+						
+						
+
+						
+					</div>
+
+				</aside>
+				<!--//right-->
+			</div>
+		</div>
+	</section>
+	<!--//main-->
+
+	<!--footer-->
+	
+
+

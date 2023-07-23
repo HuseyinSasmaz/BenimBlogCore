@@ -1,0 +1,39 @@
+﻿@using BenimBlogCore.Models.Entity
+@model List<Yazar>
+@{
+    ViewData["Title"] = "YazarProfil";
+    Layout = "~/Views/Shared/Yazar_Layout.cshtml";
+}
+
+<h1>Yazar Profil</h1>
+
+
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+
+    <div class="w3-container">
+        
+
+        <div class="w3-card-4" style="width:70%">
+            @foreach (var item in Model)
+        {
+            <header class="w3-container w3-light-grey">
+                <h3>@item.YazarAdı</h3>
+            </header>
+            <div class="w3-container">
+                <p>             </p>
+                <hr>
+                <img src="@item.YazarResim" alt="Avatar" class="w3-left w3-circle w3-margin-right" style="width:60px">
+                <p>@item.YazarHakkında</p><br>
+            </div>
+            <button class="w3-button w3-block w3-dark-grey">İletişim ------@item.YazarMail</button>
+        }        
+           
+            
+        </div>
+    </div>
+
+

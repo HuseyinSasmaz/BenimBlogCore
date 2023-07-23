@@ -1,0 +1,58 @@
+﻿@model BenimBlogCore.Models.Entity.YazarGuncelleViewModel
+@{
+    ViewData["Title"] = "YazarGüncelle";
+    Layout = "~/Views/Shared/Yazar_Layout.cshtml";
+}
+
+<div class="col-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Yazar Güncelle</h4>
+           
+            <form class="forms-sample" asp-action="YazarGüncelle" method="post">
+                <div class="form-group">
+                    <label for="exampleInputName1">Adı Soyadı</label>                 
+                    <input type="text" class="form-control" asp-for="adısoyadı" id="exampleInputName1">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputName1">Kullanıcı Adı</label>
+                    <input type="text" class="form-control" asp-for="kullanıcıadı" id="exampleInputName1">
+                </div>
+
+               @* <div class="form-group">
+                    <label for="exampleInputEmail3">Resim Yolu</label>
+                    <input type="text" class="form-control" asp-for="resimurl" id="exampleInputEmail3">
+                </div>*@
+
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Email adresi</label>
+                    <input type="email" class="form-control" asp-for="mail" id="exampleInputEmail3" >
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputPassword4">Yeni Şifre</label>
+                    <input type="password" class="form-control" asp-for="sifre" id="exampleInputPassword4">
+                </div>
+
+                <div class="form-group">
+                    <label>Resim</label>
+                    <input type="file" asp-for="resimurl"  class="file-upload-default">
+                    <div class="input-group col-xs-12">
+                        <input type="text" class="form-control file-upload-info" asp-for="resimurl" disabled placeholder="Upload Image">
+                        <span class="input-group-append">
+                            <button class="file-upload-browse btn btn-gradient-primary" type="button">Resim Seç</button>
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="exampleTextarea1">Hakkında</label>
+                    <textarea class="form-control" asp-for="kullanıcıhakkında" id="exampleTextarea1" rows="4"></textarea>
+                </div>
+                <button type="submit" class="btn btn-gradient-primary mr-2">Kaydet</button>
+                <button class="btn btn-light">İptal</button>
+            </form>
+        </div>
+    </div>
+</div>

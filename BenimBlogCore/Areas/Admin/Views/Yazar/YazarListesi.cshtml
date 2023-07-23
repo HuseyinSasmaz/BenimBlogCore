@@ -1,0 +1,35 @@
+﻿@using BenimBlogCore.Models.Entity
+@model List<Yazar>
+@{
+    ViewData["Title"] = "YazarListesi";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<h1>Yazar Listesi</h1>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Yazar Adı</th>
+            <th>Aktif yap</th>
+            <th>Pasif yap</th>
+            <th>Düzenle</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>@item.YazarID</td>
+                <td>@item.YazarAdı</td>
+                <td><a href="#" class="btn btn-primary">Aktif yap</a></td>
+                <td><a href="/Admin/Yazar/YazarSil/@item.YazarID" id="silbtn" onclick="return confirm('Silmek istediğinize eminmisiniz?')" class="btn btn-danger">Pasif yap</a></td>
+                <td><a href="/Admin/Yazar/YazarDuzenle/@item.YazarID" class="btn btn-success">Düzenle</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+<br />
+<a href="/Admin/Yazar/YazarEkle/" class="btn btn-info">Yazar Ekle</a>

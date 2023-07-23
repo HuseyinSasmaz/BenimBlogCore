@@ -1,0 +1,49 @@
+﻿@model BenimBlogCore.Models.Entity.Yazar
+@{
+    ViewData["Title"] = "YazarEkle";
+    Layout = "~/Views/Shared/Yazar_Layout.cshtml";
+}
+<form class="form-group" asp-controller="Yazar" asp-action="YazarEkle" method="post" enctype="multipart/form-data">
+
+
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Yazar Güncelle</h4>
+
+
+                <div class="form-group">
+                    <label for="exampleInputName1">Adı</label>
+                    @Html.HiddenFor(x=>x.YazarID)
+                    <input type="text" class="form-control" asp-for="YazarAdı" id="exampleInputName1">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputEmail3">Email adresi</label>
+                    <input type="email" class="form-control" asp-for="YazarMail" id="exampleInputEmail3">
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword4">Şifre</label>
+                    <input type="password" class="form-control" asp-for="YazarSifre" id="exampleInputPassword4">
+                </div>
+                <div class="form-group">
+                    <label>Resim</label>
+                    <input type="file" asp-for="YazarResim" class="file-upload-default">
+                    <div class="input-group col-xs-12">
+                        <input type="text" class="form-control file-upload-info" asp-for="YazarResim" disabled placeholder="Upload Image">
+                        <span class="input-group-append">
+                            <button class="file-upload-browse btn btn-gradient-primary" type="button">Resim Seç</button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleTextarea1">Hakkında</label>
+                    <textarea class="form-control" asp-for="YazarHakkında" id="exampleTextarea1" rows="4"></textarea>
+                </div>
+                <button type="submit" class="btn btn-gradient-primary mr-2">Kaydet</button>
+                <button class="btn btn-light">İptal</button>
+            </div>
+        </div>
+    </div>
+
+</form>

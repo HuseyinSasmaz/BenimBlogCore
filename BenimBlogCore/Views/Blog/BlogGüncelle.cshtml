@@ -1,0 +1,63 @@
+﻿@model BenimBlogCore.Models.Entity.Blog
+@{
+    ViewData["Title"] = "BlogGüncelle";
+    Layout = "~/Views/Shared/Yazar_Layout.cshtml";
+}
+
+<h1>Blog Güncelle</h1>
+
+
+
+<form href="Blog/BlogGüncelle" method="post">
+    <div class="mb-3 mt-3">
+        <label class="form-label">Blog Başlık</label>
+        <input type="hidden" asp-for="@Model.BlogID" />
+        <input type="text" class="form-control" required="" asp-for="@Model.BlogBaslık">
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Blog Resim</label>
+        <input type="hidden" asp-for="@Model.BlogID" />
+        <input type="text" class="form-control" required="" asp-for="@Model.BlogResim">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Blog Tarihi</label>
+        <input type="hidden" asp-for="@Model.BlogID" />
+        <input type="text" class="form-control" required="" asp-for="@Model.BlogTarih">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Blog Küçük Resim</label>
+        <input type="hidden" asp-for="@Model.BlogID" />
+        <input type="text" class="form-control" required=""  asp-for="@Model.BlogKucukResim">
+    </div>
+     <div class="mb-3">
+    <label class="form-label">Blog Yazar</label>
+        <input type="hidden" asp-for="@Model.BlogID" />
+        <select asp-for="@Model.YazarID" class="form-control" required=""  asp-items="@(List<SelectListItem>)ViewBag.yzr">
+
+    </select>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Blog Kategori</label>
+        <input type="hidden" asp-for="@Model.BlogID" />
+        <select asp-for="@Model.KategoriID" class="form-control" required=""  asp-items="@(List<SelectListItem>)ViewBag.ktg">
+        </select>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Blog Durum</label>
+        <input type="hidden" asp-for="@Model.BlogID" />
+        <select class="form-control" required="" asp-for="@Model.BlogStatu">
+            <option value="true" >Aktif</option>
+            <option value="false">Pasif </option>
+           
+        </select>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Blog İçerik</label>
+        <input type="hidden" asp-for="@Model.BlogID" />
+        <textarea rows="5" cols="15" type="text" class="form-control" required="" asp-for="@Model.Blogİcerik"></textarea>
+    </div>
+    <button class="btn btn-primary">Kaydet</button>
+</form>
+
+         

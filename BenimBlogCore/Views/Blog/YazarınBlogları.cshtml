@@ -1,0 +1,49 @@
+﻿
+@using BenimBlogCore.Models.Entity
+@model List<Blog>
+@{
+    ViewData["Title"] = "YazarınBlogları";
+    Layout = "~/Views/Shared/Yazar_Layout.cshtml";
+}
+
+<h1>Yazarın Blokları</h1>
+
+<div class="container mt-3">
+   
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Blog Başlığı</th>
+                <th>Oluşturma Tarihi</th>
+                <th>Kategori</th>
+                <th>Durumu</th>
+                <th>Sil</th>
+                <th>Düzenle</th>
+            </tr>
+        </thead>
+        <tbody>
+           @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.BlogID</td>
+                    <td>@item.BlogBaslık</td>
+                    <td>@(((DateTime)item.BlogTarih).ToString("dd-MMM-yyyy"))</td>
+                    <td>@item.Kategori.KategoriAdı </td>
+                    <td>@if(item.BlogStatu==true)
+                        {
+                            <span class="badge badge-success">Aktif</span>
+                        }
+                        else
+                        {
+                            <span class="badge badge-danger">Pasif</span>
+                        }
+                    </td>
+                    <td><a href="/Blog/BlogSil/@item.BlogID" onclick="return confirm('Silmek istediğine emin misin?');" class="btn btn-danger">Sil</a></td>
+                    <td><a href="/Blog/BlogGüncelle/@item.BlogID" class="btn btn-warning">Düzenle</a></td>
+                </tr>
+            }   
+        </tbody>
+    </table>
+    <a href="/Blog/BlogEkle" class="btn btn-primary">Yeni Blog Ekle</a>
+</div>

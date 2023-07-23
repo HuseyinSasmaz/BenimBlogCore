@@ -1,0 +1,32 @@
+﻿@model IEnumerable<BenimBlogCore.Models.Entity.Bildirimler>
+@{
+    ViewData["Title"] = "BildirimListesi";
+    Layout = "~/Views/Shared/Yazar_Layout.cshtml";
+}
+
+<h1>BildirimListesi</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">BildirimTipi</th>
+            <th scope="col">BildirimDetay</th>
+            <th scope="col">BildirimTarihi</th>
+            <th scope="col">BildirimStatü</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <th scope="row">@item.BildirimID</th>
+                <td>@item.BildirimTipi</td>
+                <td>@item.BildirimDetay</td>
+                <td>@item.BildirimTarihi</td>
+                <td>@item.BildirimStatu</td>
+            </tr>
+        }
+       
+    </tbody>
+</table>

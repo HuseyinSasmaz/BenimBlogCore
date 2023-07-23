@@ -1,0 +1,41 @@
+﻿@*@using BenimBlogCore.Models.Entity
+@model List<Kategori>*@
+    @using X.PagedList.Mvc.Core
+    @using X.PagedList
+    @model IPagedList<BenimBlogCore.Models.Entity.Kategori>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<h1>Kategoriler Listesi</h1>
+
+ <table class="table table-bordered">
+    <thead>
+      <tr>
+          <th>#</th>
+        <th>Kategori Adı</th>
+        <th>Aktif yap</th>
+        <th>Pasif yap</th>
+        <th>Düzenle</th>
+      </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+    
+         <tr>
+        <td>@item.KategoriID</td>
+        <td>@item.KategoriAdı</td>
+         <td><a href="#" class="btn btn-primary">Aktif yap</a></td>
+                <td><a href="/Admin/Kategori/KategoriSil/@item.KategoriID" id="silbtn" onclick="return confirm('Silmek istediğinize eminmisiniz?')" class="btn btn-danger">Pasif yap</a></td>
+                <td><a href="#" class="btn btn-success">Düzenle</a></td>
+      </tr>  
+        }        
+    </tbody>
+  </table>
+  <br />
+<a href="/Admin/Kategori/KategoriEkle/" class="btn btn-info">Kategori Ekle</a>
+  <br />
+  <br />
+  @Html.PagedListPager((IPagedList)Model,sayfa=>Url.Action("Index",new{sayfa}))

@@ -1,0 +1,20 @@
+﻿@using BenimBlogCore.Models.Entity
+@model RolGüncelleViewModel
+@{
+    ViewData["Title"] = "RolGüncelle";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+<h1>Rol Güncelle</h1>
+<form href="/Admin/Role/RolGüncelle/" method="post">
+    <div class="mb-3 mt-3">
+        <label class="form-label">ID</label>
+        <input type="text" readonly="" value="@Model.id" class="form-control" name="id">
+    </div>
+    <div class="mb-3 mt-3">
+        <label class="form-label">Rolü</label>
+        <input type="text" class="form-control" value="@Model.roladı"  name="roladı">
+    </div>
+
+    <button class="btn btn-primary">Güncelle</button>
+</form>
+

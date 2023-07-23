@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "KategoriChart";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+
+
+
+<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+<div id="myPlot" style="width:100%;max-width:700px"></div>
+
+<script>
+    var xArray = @Html.Raw(Json.Serialize(ViewBag.Kategori));
+    var yArray = @Html.Raw(Json.Serialize(ViewBag.BlogSayısı));
+
+    var layout = { title: "Kategori Blog Sayısı" };
+
+    var data = [{ labels: xArray, values: yArray, type: "pie" }];
+
+    Plotly.newPlot("myPlot", data, layout);
+
+
+</script>
+
+<br />
+<br />
+<br />
+
+
+
+

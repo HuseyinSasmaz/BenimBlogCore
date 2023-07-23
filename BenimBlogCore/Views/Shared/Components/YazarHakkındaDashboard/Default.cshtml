@@ -1,0 +1,39 @@
+﻿
+@using BenimBlogCore.Models.Entity
+@model List<Yazar>
+
+
+
+@if (Model != null)
+{
+    <div class="row">
+
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Yazar Hakkında</h4>
+                  @foreach (var item in Model)
+                    {
+                        <div class="d-flex mt-5 align-items-top">
+
+                            <img src="@item.YazarResim" class="img-sm rounded-circle mr-3" alt="image">
+                            <div class="mb-0 flex-grow">
+                                <h5 class="mr-2 mb-2">@item.YazarAdı --- @item.YazarMail</h5>
+                                <p class="mb-0 font-weight-light"> @item.YazarHakkında </p>
+                            </div>
+
+                        </div>
+                    }
+                      
+
+                    
+                 
+                </div>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <p>Yazar bilgisi bulunamadı.</p>
+}

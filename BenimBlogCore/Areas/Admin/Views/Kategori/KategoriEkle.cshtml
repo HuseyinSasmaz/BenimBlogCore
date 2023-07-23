@@ -1,0 +1,20 @@
+﻿@model BenimBlogCore.Models.Entity.Kategori
+@{
+    ViewData["Title"] = "KategoriEkle";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<h1>Kategori Ekle</h1>
+
+<form href="Kategori/KategoriEkle/" method="post">
+    <div class="mb-3 mt-3">
+        <label class="form-label">Kategori Adı</label>
+        <input type="text" class="form-control" id="email" required="" name="KategoriAdı">
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Kategori Açıklama</label>
+        <textarea rows="5" cols="15" type="text" class="form-control" id="pwd" required="" name="KategoriAcıklama" ></textarea>
+    </div>
+    <button class="btn btn-primary">Ekle</button>
+</form> 

@@ -1,0 +1,42 @@
+﻿@model BenimBlogCore.Models.Entity.Blog
+@{
+    ViewData["Title"] = "BlogEkle";
+    Layout = "~/Views/Shared/Yazar_Layout.cshtml";
+}
+
+<h1>Blog Ekle</h1>
+
+<form href="Blog/BlogEkle" method="post">
+    <div class="mb-3 mt-3">
+        <label class="form-label">Blog Başlık</label>
+        <input type="text" class="form-control" id="email" required="" name="BlogBaslık">
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">Blog Resim</label>
+        <input type="text" class="form-control" id="pwd" required="" name="BlogResim">
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Blog Küçük Resim</label>
+        <input type="text" class="form-control" id="pwd" required="" name="BlogKucukResim">
+    </div>
+   @* <div class="mb-3">
+        <label class="form-label">Blog Yazar</label>
+       
+        <select name="YazarID" class="form-control" required="" asp-items="@(List<SelectListItem>)ViewBag.yzr">
+          
+        </select>
+    </div>*@
+    <div class="mb-3">
+        <label class="form-label">Blog Kategori</label>
+        <select name="KategoriID" class="form-control" required="" asp-items="@(List<SelectListItem>)ViewBag.ktg">
+            
+           
+        </select>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Blog İçerik</label>
+        <textarea rows="5" cols="15" type="text" class="form-control" id="pwd" required="" name="Blogİcerik"></textarea>
+    </div>
+    <button class="btn btn-primary">Ekle</button>
+</form> 

@@ -1,0 +1,62 @@
+﻿@using BenimBlogCore.Models.Entity
+@model List<UygulamaKullanıcısı>
+@{
+    ViewData["Title"] = "KullanıcıRolListe";
+    Layout = "~/Views/Shared/Admin_Layout.cshtml";
+}
+
+<h1>KullanıcıRolListe</h1>
+
+<div class="col-lg-12">
+    <div class="ibox ">
+        <div class="ibox-title">
+            <h5>Kullanıcı Rol Listesi  </h5>
+            <div class="ibox-tools">
+                <a class="collapse-link">
+                    <i class="fa fa-chevron-up"></i>
+                </a>
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                    <i class="fa fa-wrench"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-user">
+                    <li>
+                        <a href="#" class="dropdown-item">Config option 1</a>
+                    </li>
+                    <li>
+                        <a href="#" class="dropdown-item">Config option 2</a>
+                    </li>
+                </ul>
+                <a class="close-link">
+                    <i class="fa fa-times"></i>
+                </a>
+            </div>
+        </div>
+        <div class="ibox-content">
+
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+
+                        <th>Kullanıcı</th>
+                        <th>Rol Ata</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.UserName</td>
+                            <td><a href="/Admin/Role/RolAta/@item.Id" class="btn btn-outline-danger">Rol Ata</a></td>
+
+
+                        </tr>
+                    }
+
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <a href="/Admin/Role/Index/" class="btn btn-primary">Rol Listesi</a>
+</div>
